@@ -14,14 +14,16 @@ public class Danger : MonoBehaviour
 		bc = gameObject.GetComponent<BoxCollider2D>();
 	}
 	
-	void OnTriggerEnter2D()
+	void OnTriggerEnter2D(Collider2D collider)
 	{
-		ball.transform.position = new Vector3(-14f + 32f*(Ball.curStage-1), -6f, 0f);
-		Ball.sr.color = new Color(1f, 1f, 0f, 1f);
-		Ball.dashEnabled = false;
-		
-		ItemDash.sr.color = new Color(1f, 1f, 1f, 1f);
-		ItemDash.bc = gameObject.AddComponent<BoxCollider2D>();
+		if(collider.name == "Ball")
+		{
+			ball.transform.position = new Vector3(-14f + 32f*(Ball.curStage-1), -6f, 0f);
+			
+			Ball.ballRB.velocity = new Vector2(0f, 0f);
+			Ball.ballSR.color = new Color(1f, 1f, 0f, 1f);
+			Ball.dashEnabled = false;
+		}
 	}
 
 	// Update is called once per frame

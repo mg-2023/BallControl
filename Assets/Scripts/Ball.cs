@@ -4,42 +4,35 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-	public static Ball Instance;
-	void Awake()
-	{
-		if(Instance == null)
-		{
-			Instance = this;
-		}
-	}
-	
 	bool onGround;
-	[HideInInspector]
-	public static int curStage = 1;
-	public static SpriteRenderer sr;
-	public static bool dashEnabled;
 	
+	public static int curStage = 1;
+	public static bool dashEnabled;
+	public static SpriteRenderer ballSR;
+	public static Rigidbody2D ballRB;
+		
 	public float accel, maxSpeed, jumpStrength;
 	
-	Rigidbody2D ballRB;
-
 	// Start is called before the first frame update
 	void Start()
 	{
 		onGround = false;
 
 		ballRB = gameObject.GetComponent<Rigidbody2D>();
-		sr = gameObject.GetComponent<SpriteRenderer>();
+		ballSR = gameObject.GetComponent<SpriteRenderer>();
 	}
 
-	void OnTriggerEnter2D()
+	void OnTriggerEnter2D(Collider2D collider)
 	{
-		onGround = true;
-		if(ballRB.velocity.x > maxSpeed)
-			ballRB.velocity = new Vector2(maxSpeed, ballRB.velocity.y);
-		
-		else if(ballRB.velocity.x < -maxSpeed)
-			ballRB.velocity = new Vector2(-maxSpeed, ballRB.velocity.y);
+		if(collider.tag != "Dash")
+		{
+			onGround = true;
+			if(ballRB.velocity.x > maxSpeed)
+				ballRB.velocity = new Vector2(maxSpeed, ballRB.velocity.y);
+			
+			else if(ballRB.velocity.x < -maxSpeed)
+				ballRB.velocity = new Vector2(-maxSpeed, ballRB.velocity.y);
+		}
 	}
 
 	// Update is called once per frame
@@ -80,12 +73,12 @@ public class Ball : MonoBehaviour
 		if(Input.GetKeyDown(KeyCode.Z) && dashEnabled)
 		{
 			if(ballRB.velocity.x > 0)
-				ballRB.velocity += new Vector2(10f, 0f);
+				ballRB.velocity = new Vector2(15f, 5f);
 			
 			else
-				ballRB.velocity += new Vector2(-10f, 0f);
+				ballRB.velocity = new Vector2(-15f, 5f);
 			
-			sr.color = new Color(1f, 1f, 0f, 1f);
+			ballSR.color = new Color(1f, 1f, 0f, 1f);
 			dashEnabled = false;
 		}
 	}

@@ -4,40 +4,53 @@ using UnityEngine;
 
 public class ItemDash : MonoBehaviour
 {
-	/*
-	public static ItemDash Instance;
-	void Awake()
-	{
-		if(Instance == null)
-		{
-			Instance = this;
-		}
-	}
-	*/
-	public static SpriteRenderer sr;
-	public static BoxCollider2D bc;
-	// public GameObject obj;
+	bool itemUsable = true;
+	float regenCool;
+	SpriteRenderer itemSR;
+	BoxCollider2D itemBC;
 	
 	// Start is called before the first frame update
 	void Start()
 	{
-		bc = gameObject.AddComponent<BoxCollider2D>();
-		sr = gameObject.GetComponent<SpriteRenderer>();
+		regenCool = 0f;
 		
-		bc.isTrigger = true;
+		itemBC = gameObject.AddComponent<BoxCollider2D>();
+		itemBC.isTrigger = true;
+		itemBC.tag = "Dash";
+		
+		itemSR = gameObject.GetComponent<SpriteRenderer>();
 	}
 	
-	void OnTriggerEnter2D()
+	void OnTriggerEnter2D(Collider2D collider)
 	{
-		Ball.sr.color = Color.black;
-		Ball.dashEnabled = true;
-		sr.color = new Color(1f, 1f, 1f, 0f);
-		Destroy(bc);
+		if(collider.name == "Ball")
+		{
+			Destroy(GetComponent<BoxCollider2D>());
+			regenCool = 0f;
+			
+			itemSR.color = new Color(1f, 1f, 1f, 0f);
+			itemUsable = false;
+			
+			Ball.ballSR.color = Color.black;
+			Ball.dashEnabled = true;
+		}
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		
+		if(!itemUsable)
+		{
+			regenCool += Time.deltaTime;
+			itemSR.color = new Color(1f, 1f, 1f, regenCool);
+			
+			if(regenCool >= 1f)
+			{
+				itemBC = gameObject.AddComponent<BoxCollider2D>();
+				itemBC.isTrigger = true;
+				
+				itemUsable = true;
+			}
+		}
 	}
 }
