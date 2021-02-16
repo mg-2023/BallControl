@@ -6,11 +6,14 @@ public class Ball : MonoBehaviour
 {
 	bool onGround;
 	
+	// 이 변수는 다음으로 넘어가는 오브젝트가 갖고있는 스크립트가 접근 가능하게 하려고 한 것
 	public static int curStage = 1;
+	
+	// 아래 3개는 장애물이나 아이템이 갖고있는 스크립트가 접근 가능하게 하려고 한 것
 	public static bool dashEnabled;
 	public static SpriteRenderer ballSR;
 	public static Rigidbody2D ballRB;
-		
+	
 	public float accel, maxSpeed, jumpStrength;
 	
 	// Start is called before the first frame update
@@ -48,28 +51,28 @@ public class Ball : MonoBehaviour
 		if(Input.GetKey(KeyCode.LeftArrow))
 		{
 			if(ballRB.velocity.x > -maxSpeed)
-				ballRB.velocity -= new Vector2(accel, 0f);
+				ballRB.velocity -= new Vector2(accel, 0f) * Time.deltaTime;
 		}
 		
 		else
 		{
 			if(ballRB.velocity.x < 0)
-				ballRB.velocity += new Vector2(accel, 0f);
+				ballRB.velocity += new Vector2(accel, 0f) * Time.deltaTime;
 		}
 
 		if(Input.GetKey(KeyCode.RightArrow))
 		{
 			if(ballRB.velocity.x < maxSpeed)
-				ballRB.velocity += new Vector2(accel, 0f);
+				ballRB.velocity += new Vector2(accel, 0f) * Time.deltaTime;
 		}
 		
 		else
 		{
 			if(ballRB.velocity.x > 0)
-				ballRB.velocity -= new Vector2(accel, 0f);
+				ballRB.velocity -= new Vector2(accel, 0f) * Time.deltaTime;
 		}
 		
-		// player dash control
+		// 대시 아이템을 먹은 상태에서 조정하는 것
 		if(Input.GetKeyDown(KeyCode.Z) && dashEnabled)
 		{
 			if(ballRB.velocity.x > 0)
@@ -78,7 +81,7 @@ public class Ball : MonoBehaviour
 			else
 				ballRB.velocity = new Vector2(-15f, 5f);
 			
-			ballSR.color = new Color(1f, 1f, 0f, 1f);
+			ballSR.color = Color.yellow;
 			dashEnabled = false;
 		}
 	}
