@@ -88,6 +88,12 @@ public class ItemGuide1 : MonoBehaviour
 				dashGuide.text = "Don\'t get confused.. There\'re two items now!";
 				break;
 				
+			case 13:
+				rt.anchoredPosition = new Vector2(0f, 225f);
+				dashGuide.color = new Color(1f, 1f, 1f, 1f);
+				dashGuide.text = "More item changes.. and increasing difficulty";
+				break;
+				
 			default:
 				dashGuide.color = new Color(1f, 1f, 1f, 0f);
 				break;

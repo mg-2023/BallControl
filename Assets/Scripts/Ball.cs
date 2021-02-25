@@ -45,9 +45,8 @@ public class Ball : MonoBehaviour
 				ballRB.velocity = new Vector2(-maxSpeed, ballRB.velocity.y);
 		}
 	}
-
-	// Update is called once per frame
-	void Update()
+	
+	void PlayerMove()
 	{
 		// player movement control
 		if(Input.GetKeyDown(KeyCode.UpArrow) && onGround)
@@ -79,7 +78,10 @@ public class Ball : MonoBehaviour
 			if(ballRB.velocity.x > 0)
 				ballRB.velocity -= new Vector2(accel, 0f) * Time.deltaTime;
 		}
-		
+	}
+	
+	void ItemControl()
+	{
 		// 대시 아이템을 먹은 상태에서 조정하는 것
 		if(Input.GetKeyDown(KeyCode.Z) && dashEnabled)
 		{
@@ -96,10 +98,19 @@ public class Ball : MonoBehaviour
 		// 점프 아이템을 먹은 상태에서 조정하는 것
 		if(Input.GetKeyDown(KeyCode.X) && jumpEnabled)
 		{
-			ballRB.velocity = new Vector2(ballRB.velocity.x, 12f);
+			ballRB.velocity = new Vector2((ballRB.velocity.x>0) ? 5f : -5f, 12f);
 			
 			ballSR.color = Color.yellow;
 			jumpEnabled = false;
 		}
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+		PlayerMove();
+		ItemControl();
+		
+		cam.backgroundColor = new Color(0f, (curStage+15f)/60f, 0f, 1f);
 	}
 }
