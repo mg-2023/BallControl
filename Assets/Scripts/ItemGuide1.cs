@@ -93,7 +93,19 @@ public class ItemGuide1 : MonoBehaviour
 				dashGuide.color = new Color(1f, 1f, 1f, 1f);
 				dashGuide.text = "More item changes.. and increasing difficulty";
 				break;
-				
+
+			case 14:
+				rt.anchoredPosition = new Vector2(0f, 125f);
+				dashGuide.color = new Color(1f, 1f, 1f, 1f);
+				dashGuide.text = "Challenge accepted: jumping over the wall";
+				break;
+
+			case 15:
+				rt.anchoredPosition = new Vector2(0f, 0f);
+				dashGuide.color = new Color(1f, 1f, 1f, 1f);
+				dashGuide.text = "There are no stages behind..\nCongratulations!!";
+				break;
+
 			default:
 				dashGuide.color = new Color(1f, 1f, 1f, 0f);
 				break;
