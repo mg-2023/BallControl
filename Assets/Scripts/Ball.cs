@@ -6,10 +6,8 @@ public class Ball : MonoBehaviour
 {
 	bool onGround;
 	
-	// 이 변수는 다음으로 넘어가는 오브젝트가 갖고있는 스크립트가 접근 가능하게 하려고 한 것
 	public static int curStage = 1;
 	
-	// 아래 4개는 장애물이나 아이템이 갖고있는 스크립트가 접근 가능하게 하려고 한 것
 	public static bool dashEnabled;
 	public static bool jumpEnabled;
 	public static SpriteRenderer ballSR;
@@ -26,11 +24,12 @@ public class Ball : MonoBehaviour
 
 		ballRB = gameObject.GetComponent<Rigidbody2D>();
 		ballSR = gameObject.GetComponent<SpriteRenderer>();
+
+		// curStage = startLevel;
+		curStage = SceneTrans.current;
 		
-		cam.transform.position = new Vector3((startLevel-1)*32f, 0f, -1f);
-		transform.position = new Vector3(-14f + (startLevel-1)*32f, -6f, 0f);
-		
-		curStage = startLevel;
+		cam.transform.position = new Vector3((curStage-1)*32f, 0f, -1f);
+		transform.position = new Vector3(-14f + (curStage-1)*32f, -6f, 0f);
 	}
 
 	void OnTriggerEnter2D(Collider2D collider)

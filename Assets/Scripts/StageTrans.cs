@@ -20,6 +20,7 @@ public class StageTrans : MonoBehaviour
 	void OnCollisionEnter2D(Collision2D collision)
 	{
 		Ball.curStage++;
+		SceneTrans.current++;
 		ball.transform.position = new Vector3(-14f + 32f*(Ball.curStage-1), -6f, 0f);
 		cam.transform.position = new Vector3(32f*(Ball.curStage-1), 0f, -1f);
 	}
