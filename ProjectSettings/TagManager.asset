@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Next
   - Dash
+  - Jump
+  - Floor
+  - Tile
   layers:
   - Default
   - TransparentFX

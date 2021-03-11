@@ -24,6 +24,8 @@ public class SceneTrans : MonoBehaviour
 		stageSelect.onClick.AddListener(GotoSelect);
 
 		NA.color = new Color(1f, 0f, 0f, 0f);
+
+		startGame.GetComponentInChildren<Text>().text = "Start\n<size=16>(Reset progress)</size>";
 	}
 
 	void GotoStage1()

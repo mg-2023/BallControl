@@ -32,9 +32,9 @@ public class Ball : MonoBehaviour
 		transform.position = new Vector3(-14f + (curStage-1)*32f, -6f, 0f);
 	}
 
-	void OnTriggerEnter2D(Collider2D collider)
+	void OnTriggerStay2D(Collider2D collider)
 	{
-		if(collider.tag != "Dash")
+		if(collider.CompareTag("Floor") || collider.CompareTag("Tile"))
 		{
 			onGround = true;
 			if(ballRB.velocity.x > maxSpeed)
@@ -81,7 +81,7 @@ public class Ball : MonoBehaviour
 	
 	void ItemControl()
 	{
-		// 대시 아이템을 먹은 상태에서 조정하는 것
+		// controller while dash item is enabled
 		if(Input.GetKeyDown(KeyCode.Z) && dashEnabled)
 		{
 			if(ballRB.velocity.x > 0)
@@ -94,7 +94,7 @@ public class Ball : MonoBehaviour
 			dashEnabled = false;
 		}
 		
-		// 점프 아이템을 먹은 상태에서 조정하는 것
+		// coltroller while jump item is enabled
 		if(Input.GetKeyDown(KeyCode.X) && jumpEnabled)
 		{
 			ballRB.velocity = new Vector2((ballRB.velocity.x>0) ? 5f : -5f, 12f);
