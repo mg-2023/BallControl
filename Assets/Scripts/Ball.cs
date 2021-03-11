@@ -26,7 +26,7 @@ public class Ball : MonoBehaviour
 		ballSR = gameObject.GetComponent<SpriteRenderer>();
 
 		// curStage = startLevel;
-		curStage = SceneTrans.current;
+		curStage = Intro.current;
 		
 		cam.transform.position = new Vector3((curStage-1)*32f, 0f, -1f);
 		transform.position = new Vector3(-14f + (curStage-1)*32f, -6f, 0f);

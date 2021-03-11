@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class SceneTrans : MonoBehaviour
+public class Intro : MonoBehaviour
 {
 	float alpha = 0f;
 

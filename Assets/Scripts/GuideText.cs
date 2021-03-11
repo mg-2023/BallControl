@@ -78,6 +78,7 @@ public class GuideText : MonoBehaviour
 				
 			case 11:
 				rt.anchoredPosition = new Vector2(0f, 80f);
+				guideText.alignment = TextAnchor.MiddleLeft;
 				guideText.text = "6 jumps in a row.. again!!";
 				break;
 				
@@ -92,13 +93,14 @@ public class GuideText : MonoBehaviour
 				break;
 
 			case 14:
-				rt.anchoredPosition = new Vector2(0f, 125f);
+				rt.anchoredPosition = new Vector2(0f, 250f);
+				guideText.alignment = TextAnchor.MiddleLeft;
 				guideText.text = "Challenge accepted: jumping over the wall";
 				break;
 
 			case 15:
 				rt.anchoredPosition = new Vector2(0f, 0f);
-				guideText.text = "There are no stages behind..\nCongratulations!!";
+				guideText.text = "More stages coming soon...";
 				break;
 
 			default:
