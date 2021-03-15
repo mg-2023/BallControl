@@ -7,7 +7,6 @@ public class Ball : MonoBehaviour
 	bool onGround;
 	
 	public static int curStage = 1;
-	
 	public static bool dashEnabled;
 	public static bool jumpEnabled;
 	public static SpriteRenderer ballSR;
@@ -84,11 +83,7 @@ public class Ball : MonoBehaviour
 		// controller while dash item is enabled
 		if(Input.GetKeyDown(KeyCode.Z) && dashEnabled)
 		{
-			if(ballRB.velocity.x > 0)
-				ballRB.velocity = new Vector2(15f, 5f);
-			
-			else
-				ballRB.velocity = new Vector2(-15f, 5f);
+			ballRB.velocity = new Vector2((ballRB.velocity.x > 0) ? 15f : -15f, 5f);
 			
 			ballSR.color = Color.yellow;
 			dashEnabled = false;
@@ -97,7 +92,7 @@ public class Ball : MonoBehaviour
 		// coltroller while jump item is enabled
 		if(Input.GetKeyDown(KeyCode.X) && jumpEnabled)
 		{
-			ballRB.velocity = new Vector2((ballRB.velocity.x>0) ? 5f : -5f, 12f);
+			ballRB.velocity = new Vector2((ballRB.velocity.x > 0) ? 5f : -5f, 12f);
 			
 			ballSR.color = Color.yellow;
 			jumpEnabled = false;

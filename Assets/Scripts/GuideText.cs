@@ -36,23 +36,24 @@ public class GuideText : MonoBehaviour
 				break;
 				
 			case 3:
-				rt.anchoredPosition = new Vector2(0f, 80f);
-				guideText.text = "Be careful of that red thingy";
+				rt.anchoredPosition = new Vector2(0f, 150f);
+				guideText.text = 
+					"Be careful of that red thingy\n<size=16>That makes you to go back to start position</size>";
 				break;
 				
 			case 4:
-				rt.anchoredPosition = new Vector2(0f, 120f);
-				guideText.text = "Jump past that red thingy... Yeah it gets harder";
+				rt.anchoredPosition = new Vector2(0f, 180f);
+				guideText.text = "Jump past that red thingy...\n<size=16>Yeah it gets harder</size>";
 				break;
 				
 			case 5:
-				rt.anchoredPosition = new Vector2(0f, 120f);
-				guideText.text = "This is even harder!! Good luck";
+				rt.anchoredPosition = new Vector2(0f, -165f);
+				guideText.text = "This is even harder!!\n<size=16>Good luck</size>";
 				break;
 				
 			case 6:
-				rt.anchoredPosition = new Vector2(0f, 0f);
-				guideText.text = "Dash Usage - Hold arrow key and press \'Z\'";
+				rt.anchoredPosition = new Vector2(0f, 30f);
+				guideText.text = "Dash Usage\n<size=16>Hold arrow key and press \'Z\'</size>";
 				break;
 				
 			case 7:
@@ -72,8 +73,8 @@ public class GuideText : MonoBehaviour
 				break;
 				
 			case 10:
-				rt.anchoredPosition = new Vector2(0f, 0f);
-				guideText.text = "Jump Usage - Hold arrow key and press \'X\'";
+				rt.anchoredPosition = new Vector2(0f, 30f);
+				guideText.text = "Jump Usage\n<size=16>Hold arrow key and press \'X\'</size>";
 				break;
 				
 			case 11:
@@ -83,13 +84,13 @@ public class GuideText : MonoBehaviour
 				break;
 				
 			case 12:
-				rt.anchoredPosition = new Vector2(0f, 80f);
+				rt.anchoredPosition = new Vector2(0f, -210f);
 				guideText.text = "Don\'t get confused.. There\'re two items now!";
 				break;
 				
 			case 13:
 				rt.anchoredPosition = new Vector2(0f, 225f);
-				guideText.text = "More item changes.. and increasing difficulty";
+				guideText.text = "More item changes\n<size=16>and increasing difficulty</size>";
 				break;
 
 			case 14:

@@ -23,6 +23,7 @@ public class Danger : MonoBehaviour
 			Ball.ballRB.velocity = new Vector2(0f, 0f);
 			Ball.ballSR.color = new Color(1f, 1f, 0f, 1f);
 			Ball.dashEnabled = false;
+			Ball.jumpEnabled = false;
 		}
 	}
 

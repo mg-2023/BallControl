@@ -7,13 +7,13 @@ using UnityEngine.SceneManagement;
 public class Intro : MonoBehaviour
 {
 	float alpha = 0f;
+	GameObject BGM;
 
 	public static int current = 1;
 
 	public Button startGame;
 	public Button startFromRecent;
 	public Button stageSelect;
-
 	public Text NA;
 
 	// Start is called before the first frame update
@@ -26,17 +26,34 @@ public class Intro : MonoBehaviour
 		NA.color = new Color(1f, 0f, 0f, 0f);
 
 		startGame.GetComponentInChildren<Text>().text = "Start\n<size=16>(Reset progress)</size>";
+
+		BGM = GameObject.Find("BGM");
+	}
+
+	IEnumerator Intro2Main()
+	{
+		Scene currentScene = SceneManager.GetActiveScene();
+
+		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("World", LoadSceneMode.Additive);
+
+		while(!asyncLoad.isDone)
+		{
+			yield return null;
+		}
+
+		SceneManager.MoveGameObjectToScene(BGM, SceneManager.GetSceneByName("World"));
+		SceneManager.UnloadSceneAsync(currentScene);
 	}
 
 	void GotoStage1()
 	{
 		current = 1;
-		SceneManager.LoadScene("World", LoadSceneMode.Single);
+		StartCoroutine(Intro2Main());
 	}
 
 	void GotoRecent()
 	{
-		SceneManager.LoadScene("World", LoadSceneMode.Single);
+		StartCoroutine(Intro2Main());
 	}
 
 	void GotoSelect()
