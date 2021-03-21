@@ -6,14 +6,14 @@ public class ItemJump : MonoBehaviour
 {
 	bool itemUsable = true;
 	float regenCool;
-	// 실시간으로 올라가는 재생성 타이머
-	
+	// increments real-time
+
 	SpriteRenderer itemSR;
 	BoxCollider2D itemBC;
 	
 	public float regenTime = 1f;
-	// 재생성되기까지 걸리는 시간, 기본은 1초이나 바꿀 수 있음
-	
+	// item regeneration time, defaults to 1sec but can change in inspector
+
 	// Start is called before the first frame update
 	void Start()
 	{

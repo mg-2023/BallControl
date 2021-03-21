@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MiscControl : MonoBehaviour
+public class ToIntro : MonoBehaviour
 {
 	GameObject BGM;
 
@@ -13,7 +13,7 @@ public class MiscControl : MonoBehaviour
 		BGM = GameObject.Find("BGM");
 	}
 
-	IEnumerator Main2Intro()
+	IEnumerator MoveToIntro()
 	{
 		Scene currentScene = SceneManager.GetActiveScene();
 		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Intro2", LoadSceneMode.Additive);
@@ -36,7 +36,7 @@ public class MiscControl : MonoBehaviour
 	{
 		if(Input.GetKeyDown(KeyCode.Escape))
 		{
-			StartCoroutine(Main2Intro());
+			StartCoroutine(MoveToIntro());
 		}
 	}
 }

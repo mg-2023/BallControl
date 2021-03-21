@@ -19,8 +19,13 @@ public class StageTrans : MonoBehaviour
 	
 	void OnCollisionEnter2D(Collision2D collision)
 	{
+		for(int i=0; i<Ball.curStage; i++)
+        {
+			SelectionButton.stageState[Ball.curStage] = true;
+		}
+
 		Ball.curStage++;
-		Intro.current++;
+		Intro.maximum++;
 
 		ball.transform.position = new Vector3(-14f + 32f*(Ball.curStage-1), -6f, 0f);
 		Ball.ballRB.velocity = new Vector2(0f, 0f);

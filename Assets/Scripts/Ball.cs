@@ -12,7 +12,7 @@ public class Ball : MonoBehaviour
 	public static SpriteRenderer ballSR;
 	public static Rigidbody2D ballRB;
 	
-	public int startLevel=1;
+	// public int startLevel=1;
 	public float accel, maxSpeed, jumpStrength;
 	public Camera cam;
 	
