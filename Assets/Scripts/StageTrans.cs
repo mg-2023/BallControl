@@ -19,11 +19,6 @@ public class StageTrans : MonoBehaviour
 	
 	void OnCollisionEnter2D(Collision2D collision)
 	{
-		for(int i=0; i<Ball.curStage; i++)
-        {
-			SelectionButton.stageState[Ball.curStage] = true;
-		}
-
 		Ball.curStage++;
 		Intro.maximum++;
 

@@ -5731,7 +5731,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1855746845}
-  - component: {fileID: 1855746846}
   m_Layer: 0
   m_Name: StageManager
   m_TagString: Untagged
@@ -5753,49 +5752,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1855746846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1855746844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9aecc1af5959824d92d40dd1e885a26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stages:
-  - {fileID: 694170304}
-  - {fileID: 1616634861}
-  - {fileID: 146250303}
-  - {fileID: 1807746444}
-  - {fileID: 216034813}
-  - {fileID: 1637778095}
-  - {fileID: 463148308}
-  - {fileID: 501407440}
-  - {fileID: 1711775326}
-  - {fileID: 275130868}
-  - {fileID: 776551492}
-  - {fileID: 836584236}
-  - {fileID: 34300104}
-  - {fileID: 1170056124}
-  - {fileID: 1078375363}
-  - {fileID: 282575051}
-  - {fileID: 814011015}
-  - {fileID: 769848084}
-  - {fileID: 2000364739}
-  - {fileID: 2021229713}
-  - {fileID: 2125974400}
-  - {fileID: 1765950365}
-  - {fileID: 1719630990}
-  - {fileID: 1143026417}
-  - {fileID: 227795219}
-  - {fileID: 2079592264}
-  - {fileID: 425338821}
-  - {fileID: 709511696}
-  - {fileID: 393095276}
-  - {fileID: 1817478636}
 --- !u!1 &2000364735
 GameObject:
   m_ObjectHideFlags: 0
