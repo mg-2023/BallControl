@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿	using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -100,8 +100,8 @@ public class GuideText : MonoBehaviour
 				break;
 
 			case 15:
-				rt.anchoredPosition = new Vector2(0f, 0f);
-				guideText.text = "More stages coming soon...";
+				rt.anchoredPosition = new Vector2(0f, -135f);
+				guideText.text = "You know.. this is the upgraded version of stage 9";
 				break;
 
 			default:

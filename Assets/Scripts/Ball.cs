@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
 	bool onGround;
+	public int startLevel = 1;
 	
 	public static int curStage = 1;
 	public static bool dashEnabled;
@@ -24,8 +25,8 @@ public class Ball : MonoBehaviour
 		ballRB = gameObject.GetComponent<Rigidbody2D>();
 		ballSR = gameObject.GetComponent<SpriteRenderer>();
 
-		// curStage = startLevel;
-		curStage = Intro.current;
+		curStage = startLevel;
+		// curStage = Intro.current;
 		
 		cam.transform.position = new Vector3((curStage-1)*32f, 0f, -1f);
 		transform.position = new Vector3(-14f + (curStage-1)*32f, -6f, 0f);
