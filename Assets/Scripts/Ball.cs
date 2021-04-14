@@ -5,8 +5,10 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
 	bool onGround;
+
 	public int startLevel = 1;
 	
+	// TODO: minimize static variable count
 	public static int curStage = 1;
 	public static bool dashEnabled;
 	public static bool jumpEnabled;
@@ -32,19 +34,23 @@ public class Ball : MonoBehaviour
 		transform.position = new Vector3(-14f + (curStage-1)*32f, -6f, 0f);
 	}
 
-	void OnTriggerStay2D(Collider2D collider)
+	void OnCollisionEnter2D(Collision2D collision)
 	{
-		if(collider.CompareTag("Floor") || collider.CompareTag("Tile"))
-		{
-			onGround = true;
-			if(ballRB.velocity.x > maxSpeed)
-				ballRB.velocity = new Vector2(maxSpeed, ballRB.velocity.y);
-			
-			else if(ballRB.velocity.x < -maxSpeed)
-				ballRB.velocity = new Vector2(-maxSpeed, ballRB.velocity.y);
-		}
+		if (ballRB.velocity.x > maxSpeed)
+			ballRB.velocity = new Vector2(maxSpeed, ballRB.velocity.y);
+
+		else if (ballRB.velocity.x < -maxSpeed)
+			ballRB.velocity = new Vector2(-maxSpeed, ballRB.velocity.y);
 	}
-	
+
+
+	// player is able to jump when collided with manually sized trigger collider
+	void OnTriggerEnter2D(Collider2D collider)
+	{
+		if (collider.CompareTag("Floor") || collider.CompareTag("Tile"))
+			onGround = true;
+	}
+
 	void PlayerMove()
 	{
 		// player movement control

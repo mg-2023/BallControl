@@ -31,8 +31,7 @@ public class GuideText : MonoBehaviour
 				
 			case 2:
 				rt.anchoredPosition = new Vector2(0f, -30f);
-				guideText.text = 
-					"Up arrow to jump\n<size=16>Pro tip: Jump with slight delay if you hit the floor</size>";
+				guideText.text = "Up arrow to jump";
 				break;
 				
 			case 3:
@@ -105,7 +104,8 @@ public class GuideText : MonoBehaviour
 				break;
 
 			default:
-				guideText.color = new Color(1f, 1f, 1f, 0f);
+				rt.anchoredPosition = new Vector2(0f, 0f);
+				guideText.text = "More stages coming soon...";
 				break;
 		}
 	}
