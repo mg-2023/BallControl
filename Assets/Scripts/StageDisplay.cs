@@ -6,18 +6,19 @@ using UnityEngine.UI;
 public class StageDisplay : MonoBehaviour
 {
 	Text stageText;
-	public GameObject ball;
+	public Ball playerBall;
 	
 	// Start is called before the first frame update
 	void Start()
 	{
 		stageText = gameObject.GetComponent<Text>();
+
 		stageText.text = "Stage 1";
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		stageText.text = "Stage " + Ball.curStage;
+		stageText.text = "Stage " + playerBall.CurStage;
 	}
 }

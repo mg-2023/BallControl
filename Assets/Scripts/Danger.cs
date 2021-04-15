@@ -4,26 +4,29 @@ using UnityEngine;
 
 public class Danger : MonoBehaviour
 {
-	BoxCollider2D bc;
+	// BoxCollider2D bc;
 	
 	public GameObject ball;
+	Ball playerBall;
 	
 	// Start is called before the first frame update
 	void Start()
 	{
-		bc = gameObject.GetComponent<BoxCollider2D>();
+		// bc = gameObject.GetComponent<BoxCollider2D>();
+		playerBall = FindObjectOfType<Ball>();
 	}
 	
 	void OnTriggerEnter2D(Collider2D collider)
 	{
 		if(collider.name == "Ball")
 		{
-			ball.transform.position = new Vector3(-14f + 32f*(Ball.curStage-1), -6f, 0f);
+			ball.transform.position = new Vector3(-14f + 32f*(playerBall.CurStage-1), -6f, 0f);
 			
 			Ball.ballRB.velocity = new Vector2(0f, 0f);
 			Ball.ballSR.color = new Color(1f, 1f, 0f, 1f);
-			Ball.dashEnabled = false;
-			Ball.jumpEnabled = false;
+
+			playerBall.DashEnabled = false;
+			playerBall.JumpEnabled = false;
 		}
 	}
 

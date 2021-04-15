@@ -6,13 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class Intro : MonoBehaviour
 {
-	float alpha = 0f;
 	GameObject BGM;
 
-	public static int current = 1;
-	public static int maximum = 1;
-	// maximum stage are stored in this 'maximum' variable
-	// i.e. progress do not reset anymore when pressed 'start' button
+	public static int Current = 1;
+	public static int Maximum = 1;
+	// furthest stage are stored in this 'Maximum' variable
 
 	public Button startGame;
 	public Button startFromRecent;
@@ -45,6 +43,7 @@ public class Intro : MonoBehaviour
 		SceneManager.MoveGameObjectToScene(BGM, SceneManager.GetSceneByName("World"));
 		SceneManager.UnloadSceneAsync(currentScene);
 	}
+	// big thanks to unity scripting API
 
 	IEnumerator Intro2Selection()
 	{
@@ -61,13 +60,13 @@ public class Intro : MonoBehaviour
 
 	void GotoStage1()
 	{
-		current = 1;
+		Current = 1;
 		StartCoroutine(Intro2Main());
 	}
 
 	void GotoRecent()
 	{
-		current = maximum;
+		Current = Maximum;
 		StartCoroutine(Intro2Main());
 	}
 
@@ -79,14 +78,7 @@ public class Intro : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		startFromRecent.GetComponentInChildren<Text>().text = 
-			$"<size=32>Continue</size>\n<size=16>Current: {maximum}</size>";
-
-		if (alpha > 0f)
-		{
-			alpha -= Time.deltaTime / 2f;
-		}
-
-		NA.color = new Color(1f, 0f, 0f, Mathf.Lerp(0f, 1f, alpha));
+		startFromRecent.GetComponentInChildren<Text>().text =
+			$"<size=32>Continue</size>\n<size=16>Current: {Maximum}</size>";
 	}
 }

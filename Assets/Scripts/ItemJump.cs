@@ -11,7 +11,10 @@ public class ItemJump : MonoBehaviour
 	SpriteRenderer itemSR;
 	BoxCollider2D itemBC;
 	
-	public float regenTime = 1f;
+	Ball playerBall;
+
+	[SerializeField]
+    private float regenTime = 1f;
 	// item regeneration time, defaults to 1sec but can change in inspector
 
 	// Start is called before the first frame update
@@ -21,9 +24,10 @@ public class ItemJump : MonoBehaviour
 		
 		itemBC = gameObject.AddComponent<BoxCollider2D>();
 		itemBC.isTrigger = true;
-		itemBC.tag = "Dash";
+		itemBC.tag = "Jump";
 		
 		itemSR = gameObject.GetComponent<SpriteRenderer>();
+		playerBall = FindObjectOfType<Ball>();
 	}
 	
 	void OnTriggerEnter2D(Collider2D collider)
@@ -37,7 +41,7 @@ public class ItemJump : MonoBehaviour
 			itemUsable = false;
 			
 			Ball.ballSR.color = Color.red;
-			Ball.jumpEnabled = true;
+			playerBall.JumpEnabled = true;
 		}
 	}
 

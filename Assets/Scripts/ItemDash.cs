@@ -11,7 +11,10 @@ public class ItemDash : MonoBehaviour
 	SpriteRenderer itemSR;
 	BoxCollider2D itemBC;
 	
-	public float regenTime = 1f;
+	Ball playerBall;
+
+	[SerializeField]
+	private float regenTime = 1f;
 	// item regeneration time, defaults to 1sec but can change in inspector
 	
 	// Start is called before the first frame update
@@ -24,6 +27,7 @@ public class ItemDash : MonoBehaviour
 		itemBC.tag = "Dash";
 		
 		itemSR = gameObject.GetComponent<SpriteRenderer>();
+		playerBall = FindObjectOfType<Ball>();
 	}
 	
 	void OnTriggerEnter2D(Collider2D collider)
@@ -37,7 +41,7 @@ public class ItemDash : MonoBehaviour
 			itemUsable = false;
 			
 			Ball.ballSR.color = Color.black;
-			Ball.dashEnabled = true;
+			playerBall.DashEnabled = true;
 		}
 	}
 

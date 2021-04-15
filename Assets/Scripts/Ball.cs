@@ -7,15 +7,14 @@ public class Ball : MonoBehaviour
 	bool onGround;
 
 	public int startLevel = 1;
-	
-	// TODO: minimize static variable count
-	public static int curStage = 1;
-	public static bool dashEnabled;
-	public static bool jumpEnabled;
+
+	public int CurStage { get; set; } = 1;
+	public bool DashEnabled { get; set; } = false;
+	public bool JumpEnabled { get; set; } = false;
+
 	public static SpriteRenderer ballSR;
 	public static Rigidbody2D ballRB;
 	
-	// public int startLevel=1;
 	public float accel, maxSpeed, jumpStrength;
 	public Camera cam;
 	
@@ -27,11 +26,10 @@ public class Ball : MonoBehaviour
 		ballRB = gameObject.GetComponent<Rigidbody2D>();
 		ballSR = gameObject.GetComponent<SpriteRenderer>();
 
-		curStage = startLevel;
-		// curStage = Intro.current;
+		CurStage = Intro.Current;
 		
-		cam.transform.position = new Vector3((curStage-1)*32f, 0f, -1f);
-		transform.position = new Vector3(-14f + (curStage-1)*32f, -6f, 0f);
+		cam.transform.position = new Vector3((CurStage-1)*32f, 0f, -1f);
+		transform.position = new Vector3(-14f + (CurStage-1)*32f, -6f, 0f);
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)
@@ -88,21 +86,21 @@ public class Ball : MonoBehaviour
 	void ItemControl()
 	{
 		// controller while dash item is enabled
-		if(Input.GetKeyDown(KeyCode.Z) && dashEnabled)
+		if(Input.GetKeyDown(KeyCode.Z) && DashEnabled)
 		{
 			ballRB.velocity = new Vector2((ballRB.velocity.x > 0) ? 15f : -15f, 5f);
 			
 			ballSR.color = Color.yellow;
-			dashEnabled = false;
+			DashEnabled = false;
 		}
 		
-		// coltroller while jump item is enabled
-		if(Input.GetKeyDown(KeyCode.X) && jumpEnabled)
+		// controller while jump item is enabled
+		if(Input.GetKeyDown(KeyCode.X) && JumpEnabled)
 		{
 			ballRB.velocity = new Vector2((ballRB.velocity.x > 0) ? 5f : -5f, 12f);
 			
 			ballSR.color = Color.yellow;
-			jumpEnabled = false;
+			JumpEnabled = false;
 		}
 	}
 
@@ -112,6 +110,6 @@ public class Ball : MonoBehaviour
 		PlayerMove();
 		ItemControl();
 		
-		cam.backgroundColor = new Color(0f, (curStage+15f)/60f, 0f, 1f);
+		cam.backgroundColor = new Color(0f, (CurStage+15f)/60f, 0f, 1f);
 	}
 }

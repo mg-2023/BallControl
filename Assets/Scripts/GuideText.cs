@@ -1,4 +1,4 @@
-﻿	using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,12 +7,14 @@ public class GuideText : MonoBehaviour
 {
 	RectTransform rt;
 	Text guideText;
+	Ball playerBall;
 	
 	// Start is called before the first frame update
 	void Start()
 	{
 		rt = gameObject.GetComponent<RectTransform>();
 		guideText = gameObject.GetComponent<Text>();
+		playerBall = FindObjectOfType<Ball>();
 	}
 
 	// Update is called once per frame
@@ -21,7 +23,7 @@ public class GuideText : MonoBehaviour
 		guideText.alignment = TextAnchor.MiddleCenter;
 		guideText.color = new Color(1f, 1f, 1f, 1f);
 
-		switch (Ball.curStage)
+		switch (playerBall.CurStage)
 		{
 			case 1:
 				rt.anchoredPosition = new Vector2(0f, -30f);
