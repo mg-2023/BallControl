@@ -102,6 +102,7 @@ public class GuideText : MonoBehaviour
 
 			case 15:
 				rt.anchoredPosition = new Vector2(0f, -135f);
+				guideText.alignment = TextAnchor.MiddleRight;
 				guideText.text = "You know.. this is the upgraded version of stage 9";
 				break;
 

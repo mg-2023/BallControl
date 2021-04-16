@@ -21,7 +21,8 @@ public class StageTrans : MonoBehaviour
 	void OnCollisionEnter2D(Collision2D collision)
 	{
 		playerBall.CurStage++;
-        Intro.Maximum++;
+		if(playerBall.CurStage > Intro.Maximum)
+			Intro.Maximum++;
 
 		ball.transform.position = new Vector3(-14f + 32f*(playerBall.CurStage-1), -6f, 0f);
 		Ball.ballRB.velocity = new Vector2(0f, 0f);
