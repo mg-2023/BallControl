@@ -12,10 +12,10 @@ public class Intro : MonoBehaviour
 	public static int Maximum = 1;
 	// furthest stage are stored in this 'Maximum' variable
 
+	[Header("Buttons")]
 	public Button startGame;
 	public Button startFromRecent;
 	public Button stageSelect;
-	public Text NA;
 
 	// Start is called before the first frame update
 	void Start()
@@ -23,8 +23,6 @@ public class Intro : MonoBehaviour
 		startGame.onClick.AddListener(GotoStage1);
 		startFromRecent.onClick.AddListener(GotoRecent);
 		stageSelect.onClick.AddListener(GotoSelect);
-
-		NA.color = new Color(1f, 0f, 0f, 0f);
 
 		startGame.GetComponentInChildren<Text>().text = "Start\n<size=16>(From Stage1)</size>";
 

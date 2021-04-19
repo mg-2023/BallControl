@@ -44,12 +44,12 @@ public class GuideText : MonoBehaviour
 				
 			case 4:
 				rt.anchoredPosition = new Vector2(0f, 180f);
-				guideText.text = "Jump past that red thingy...\n<size=16>Yeah it gets harder</size>";
+				guideText.text = "Jump past that red thingy";
 				break;
 				
 			case 5:
 				rt.anchoredPosition = new Vector2(0f, -165f);
-				guideText.text = "This is even harder!!\n<size=16>Good luck</size>";
+				guideText.text = "Added one more layer!\n<size=16>Good luck</size>";
 				break;
 				
 			case 6:
@@ -103,7 +103,7 @@ public class GuideText : MonoBehaviour
 			case 15:
 				rt.anchoredPosition = new Vector2(0f, -135f);
 				guideText.alignment = TextAnchor.MiddleRight;
-				guideText.text = "You know.. this is the upgraded version of stage 9";
+				guideText.text = "Everything gets trickier...";
 				break;
 
 			default:
