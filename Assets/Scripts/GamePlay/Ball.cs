@@ -14,8 +14,13 @@ public class Ball : MonoBehaviour
 
 	public static SpriteRenderer ballSR;
 	public static Rigidbody2D ballRB;
-	
-	public float accel, maxSpeed, jumpStrength;
+
+	[Header("Ball Properties")]
+	public float accel;
+	public float maxSpeed;
+	public float jumpStrength;
+
+	[Header("Main Camera")]
 	public Camera cam;
 	
 	// Start is called before the first frame update
@@ -30,6 +35,15 @@ public class Ball : MonoBehaviour
 		
 		cam.transform.position = new Vector3((CurStage-1)*32f, 0f, -1f);
 		transform.position = new Vector3(-14f + (CurStage-1)*32f, -6f, 0f);
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+		PlayerMove();
+		ItemControl();
+		
+		cam.backgroundColor = new Color(0f, (CurStage+15f)/60f, 0f, 1f);
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)
@@ -102,14 +116,5 @@ public class Ball : MonoBehaviour
 			ballSR.color = Color.yellow;
 			JumpEnabled = false;
 		}
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-		PlayerMove();
-		ItemControl();
-		
-		cam.backgroundColor = new Color(0f, (CurStage+15f)/60f, 0f, 1f);
 	}
 }

@@ -544,6 +544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818787482b5987945af55333fc1f5088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startCheat: 16
   startGame: {fileID: 920385337}
   startFromRecent: {fileID: 2113514571}
   stageSelect: {fileID: 1850392803}

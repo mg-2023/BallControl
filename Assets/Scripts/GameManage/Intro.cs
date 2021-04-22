@@ -11,6 +11,7 @@ public class Intro : MonoBehaviour
 	public static int Current = 1;
 	public static int Maximum = 1;
 	// furthest stage are stored in this 'Maximum' variable
+	// TODO: restore the Maximum value to 1 when finished designing all the stages
 
 	[Header("Buttons")]
 	public Button startGame;
@@ -27,6 +28,13 @@ public class Intro : MonoBehaviour
 		startGame.GetComponentInChildren<Text>().text = "Start\n<size=16>(From Stage1)</size>";
 
 		BGM = GameObject.Find("BGM");
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+		startFromRecent.GetComponentInChildren<Text>().text =
+			$"<size=32>Continue</size>\n<size=16>Current: {Maximum}</size>";
 	}
 
 	IEnumerator Intro2Main()
@@ -71,12 +79,5 @@ public class Intro : MonoBehaviour
 	void GotoSelect()
 	{
 		StartCoroutine(Intro2Selection());
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-		startFromRecent.GetComponentInChildren<Text>().text =
-			$"<size=32>Continue</size>\n<size=16>Current: {Maximum}</size>";
 	}
 }

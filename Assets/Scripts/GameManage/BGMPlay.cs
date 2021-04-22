@@ -14,9 +14,11 @@ public class BGMPlay : MonoBehaviour
 		BGM.Play();
 	}
 
+	/*
 	// Update is called once per frame
 	void Update()
 	{
 		
 	}
+	*/
 }

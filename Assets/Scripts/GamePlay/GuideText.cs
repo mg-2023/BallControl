@@ -106,6 +106,18 @@ public class GuideText : MonoBehaviour
 				guideText.text = "Everything gets trickier...";
 				break;
 
+			case 16:
+				rt.anchoredPosition = new Vector2(0f, 0f);
+				guideText.alignment = TextAnchor.MiddleLeft;
+				guideText.text = "Isn\'t that.. the turret?!";
+				break;
+
+			case 17:
+				rt.anchoredPosition = new Vector2(0f, 250f);
+				guideText.alignment = TextAnchor.MiddleLeft;
+				guideText.text = "They shoot towards even left or right!";
+				break;
+
 			default:
 				rt.anchoredPosition = new Vector2(0f, 0f);
 				guideText.text = "More stages coming soon...";

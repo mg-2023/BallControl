@@ -30,9 +30,11 @@ public class StageTrans : MonoBehaviour
 		cam.transform.position = new Vector3(32f*(playerBall.CurStage-1), 0f, -1f);
 	}
 
+	/*
 	// Update is called once per frame
 	void Update()
 	{
 		
 	}
+	*/
 }

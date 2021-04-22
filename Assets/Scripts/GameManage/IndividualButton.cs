@@ -18,11 +18,13 @@ public class IndividualButton : MonoBehaviour
 		BGM = GameObject.Find("BGM");
 	}
 
+	/*
 	// Update is called once per frame
 	void Update()
 	{
 		
 	}
+	*/
 
 	IEnumerator Selection2Main()
 	{
@@ -42,7 +44,7 @@ public class IndividualButton : MonoBehaviour
 		int dest = transform.GetSiblingIndex() + 1;
 
 		Intro.Current = dest;
-		Debug.LogWarning("Warped to stage " + dest);
+		Debug.LogWarning($"Warped to stage {dest}");
 		StartCoroutine(Selection2Main());
 	}
 }

@@ -9,6 +9,7 @@ TagManager:
   - Jump
   - Floor
   - Tile
+  - Bullet
   layers:
   - Default
   - TransparentFX
