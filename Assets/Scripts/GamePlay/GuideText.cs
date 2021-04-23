@@ -113,7 +113,7 @@ public class GuideText : MonoBehaviour
 				break;
 
 			case 17:
-				rt.anchoredPosition = new Vector2(0f, 250f);
+				rt.anchoredPosition = new Vector2(0f, -155f);
 				guideText.alignment = TextAnchor.MiddleLeft;
 				guideText.text = "They shoot towards even left or right!";
 				break;

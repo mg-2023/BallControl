@@ -5,8 +5,13 @@ using UnityEngine;
 public class TurretShoot : MonoBehaviour
 {
 	public GameObject bullet;
+	public Ball playerBall;
 
-	[Header("Bullet Properties")]
+	public int activatedStage;
+	// optimization
+
+	[Header("Turret Properties")]
+	public float firstShotDelay;
 	public float shotCool;
 	public float shotSpeed;
 
@@ -25,17 +30,21 @@ public class TurretShoot : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		shotTimer = 0f;
+		shotTimer = -firstShotDelay;
+		playerBall = FindObjectOfType<Ball>();
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		shotTimer += Time.deltaTime;
-		if(shotTimer >= shotCool)
+		if(playerBall.CurStage == activatedStage)
 		{
-			Shoot();
-			shotTimer = 0f;
+			shotTimer += Time.deltaTime;
+			if (shotTimer >= shotCool)
+			{
+				Shoot();
+				shotTimer = 0f;
+			}
 		}
 	}
 
