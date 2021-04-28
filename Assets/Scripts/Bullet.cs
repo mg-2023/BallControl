@@ -34,6 +34,7 @@ public class Bullet : MonoBehaviour
 			transform.position += Vector3.left * Speed * Time.deltaTime;
 	}
 
+	// ignores trigger so bullet passes dash / jump item
 	void OnCollisionEnter2D(Collision2D col)
 	{
 		if(col.collider.CompareTag("Player"))
@@ -45,6 +46,7 @@ public class Bullet : MonoBehaviour
 
 			playerBall.DashEnabled = false;
 			playerBall.JumpEnabled = false;
+			playerBall.OnGround = false;
 		}
 
 		if(!col.collider.CompareTag("Bullet"))

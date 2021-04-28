@@ -23,6 +23,7 @@ public class Danger : MonoBehaviour
 
 			playerBall.DashEnabled = false;
 			playerBall.JumpEnabled = false;
+			playerBall.OnGround = false;
 		}
 	}
 

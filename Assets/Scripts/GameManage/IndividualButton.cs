@@ -44,7 +44,7 @@ public class IndividualButton : MonoBehaviour
 		int dest = transform.GetSiblingIndex() + 1;
 
 		Intro.Current = dest;
-		Debug.LogWarning($"Warped to stage {dest}");
+		Debug.LogWarning($"Warped to Stage {dest:00}");
 		StartCoroutine(Selection2Main());
 	}
 }

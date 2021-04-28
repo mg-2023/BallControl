@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-	bool onGround;
 
 	public int startLevel = 1;
 
 	public int CurStage { get; set; } = 1;
 	public bool DashEnabled { get; set; } = false;
 	public bool JumpEnabled { get; set; } = false;
+	public bool OnGround { get; set; } = false;
 
 	public static SpriteRenderer ballSR;
 	public static Rigidbody2D ballRB;
@@ -26,7 +26,7 @@ public class Ball : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		onGround = false;
+		OnGround = false;
 
 		ballRB = gameObject.GetComponent<Rigidbody2D>();
 		ballSR = gameObject.GetComponent<SpriteRenderer>();
@@ -60,15 +60,15 @@ public class Ball : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D collider)
 	{
 		if (collider.CompareTag("Floor") || collider.CompareTag("Tile"))
-			onGround = true;
+			OnGround = true;
 	}
 
 	void PlayerMove()
 	{
 		// player movement control
-		if(Input.GetKeyDown(KeyCode.UpArrow) && onGround)
+		if(Input.GetKeyDown(KeyCode.UpArrow) && OnGround)
 		{
-			onGround = false;
+			OnGround = false;
 			ballRB.velocity = new Vector2(ballRB.velocity.x, jumpStrength);
 		}
 

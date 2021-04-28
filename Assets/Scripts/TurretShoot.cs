@@ -5,7 +5,6 @@ using UnityEngine;
 public class TurretShoot : MonoBehaviour
 {
 	public GameObject bullet;
-	public Ball playerBall;
 
 	public int activatedStage;
 	// optimization
@@ -25,13 +24,17 @@ public class TurretShoot : MonoBehaviour
 	[SerializeField]
 	bool toLeft = false;
 
+	Ball playerBall;
+	SpriteRenderer sr;
 	float shotTimer;
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		shotTimer = -firstShotDelay;
+
 		playerBall = FindObjectOfType<Ball>();
+		sr = GetComponent<SpriteRenderer>();
 	}
 
 	// Update is called once per frame
@@ -46,6 +49,9 @@ public class TurretShoot : MonoBehaviour
 				shotTimer = 0f;
 			}
 		}
+
+		sr.color = 
+			Color.Lerp(new Color(1f, 1f, 1f, 1f), new Color(0.5f, 0.5f, 0.5f, 1f), shotTimer / shotCool);
 	}
 
 	void Shoot()

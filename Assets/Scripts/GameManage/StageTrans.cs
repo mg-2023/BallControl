@@ -3,9 +3,6 @@ using UnityEngine;
 
 public class StageTrans : MonoBehaviour
 {
-	BoxCollider2D bc;
-	// IDE suggests that i can delete this field but i can't b/c Start() method
-
 	Ball playerBall;
 	
 	public GameObject ball;
@@ -14,7 +11,6 @@ public class StageTrans : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		bc = gameObject.AddComponent<BoxCollider2D>();
 		playerBall = FindObjectOfType<Ball>();
 	}
 	

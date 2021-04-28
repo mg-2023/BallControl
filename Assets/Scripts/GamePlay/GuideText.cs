@@ -118,6 +118,24 @@ public class GuideText : MonoBehaviour
 				guideText.text = "They shoot towards even left or right!";
 				break;
 
+			case 18:
+				rt.anchoredPosition = new Vector2(0f, -255f);
+				guideText.alignment = TextAnchor.MiddleRight;
+				guideText.text = "What if you pass through the bullets?";
+				break;
+
+			case 19:
+				rt.anchoredPosition = new Vector2(0f, 265f);
+				guideText.alignment = TextAnchor.MiddleLeft;
+				guideText.text = "I can\'t decide either easier or harder than it looks...";
+				break;
+
+			case 20:
+				rt.anchoredPosition = new Vector2(0f, -230f);
+				guideText.alignment = TextAnchor.MiddleRight;
+				guideText.text = "How dare you climb onto this?!";
+				break;
+
 			default:
 				rt.anchoredPosition = new Vector2(0f, 0f);
 				guideText.text = "More stages coming soon...";
