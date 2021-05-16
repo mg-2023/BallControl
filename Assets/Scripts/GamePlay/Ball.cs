@@ -26,8 +26,6 @@ public class Ball : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		OnGround = false;
-
 		ballRB = gameObject.GetComponent<Rigidbody2D>();
 		ballSR = gameObject.GetComponent<SpriteRenderer>();
 
@@ -40,7 +38,9 @@ public class Ball : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		PlayerMove();
+		PlayerJump();
+		PlayerMoveLeft();
+		PlayerMoveRight();
 		ItemControl();
 		
 		cam.backgroundColor = new Color(0f, (CurStage+15f)/60f, 0f, 1f);
@@ -63,15 +63,17 @@ public class Ball : MonoBehaviour
 			OnGround = true;
 	}
 
-	void PlayerMove()
-	{
-		// player movement control
-		if(Input.GetKeyDown(KeyCode.UpArrow) && OnGround)
+	void PlayerJump()
+    {
+		if (Input.GetKeyDown(KeyCode.UpArrow) && OnGround)
 		{
 			OnGround = false;
 			ballRB.velocity = new Vector2(ballRB.velocity.x, jumpStrength);
 		}
+	}
 
+	void PlayerMoveLeft()
+	{
 		if(Input.GetKey(KeyCode.LeftArrow))
 		{
 			if(ballRB.velocity.x > -maxSpeed)
@@ -83,16 +85,19 @@ public class Ball : MonoBehaviour
 			if(ballRB.velocity.x < 0)
 				ballRB.velocity += new Vector2(accel, 0f) * Time.deltaTime;
 		}
+	}
 
-		if(Input.GetKey(KeyCode.RightArrow))
+	void PlayerMoveRight()
+    {
+		if (Input.GetKey(KeyCode.RightArrow))
 		{
-			if(ballRB.velocity.x < maxSpeed)
+			if (ballRB.velocity.x < maxSpeed)
 				ballRB.velocity += new Vector2(accel, 0f) * Time.deltaTime;
 		}
-		
+
 		else
 		{
-			if(ballRB.velocity.x > 0)
+			if (ballRB.velocity.x > 0)
 				ballRB.velocity -= new Vector2(accel, 0f) * Time.deltaTime;
 		}
 	}

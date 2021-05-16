@@ -6,12 +6,15 @@ using UnityEngine.UI;
 public class StageDisplay : MonoBehaviour
 {
 	Text stageText;
-	public Ball playerBall;
+	Ball playerBall;
 	
 	// Start is called before the first frame update
 	void Start()
 	{
 		stageText = gameObject.GetComponent<Text>();
+		playerBall = FindObjectOfType<Ball>();
+
+		stageText.color = Color.white;
 	}
 
 	// Update is called once per frame

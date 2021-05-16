@@ -15,14 +15,10 @@ public class TurretShoot : MonoBehaviour
 	public float shotSpeed;
 
 	[Header("Set Shooting Direction")]
-	[SerializeField]
-	bool toUp = false;
-	[SerializeField]
-	bool toRight = false;
-	[SerializeField]
-	bool toDown = false;
-	[SerializeField]
-	bool toLeft = false;
+	public bool toUp;
+	public bool toRight;
+	public bool toDown;
+	public bool toLeft;
 
 	Ball playerBall;
 	SpriteRenderer sr;
@@ -45,54 +41,67 @@ public class TurretShoot : MonoBehaviour
 			shotTimer += Time.deltaTime;
 			if (shotTimer >= shotCool)
 			{
-				Shoot();
+				ShootUp();
+				ShootRight();
+				ShootDown();
+				ShootLeft();
+
 				shotTimer = 0f;
 			}
 		}
 
 		sr.color = 
-			Color.Lerp(new Color(1f, 1f, 1f, 1f), new Color(0.5f, 0.5f, 0.5f, 1f), shotTimer / shotCool);
+			Color.Lerp(Color.white, Color.gray, shotTimer / shotCool);
 	}
 
-	void Shoot()
+	void ShootUp()
 	{
 		if (toUp)
 		{
 			GameObject shoot = 
-				Instantiate(bullet, transform.position + new Vector3(0f, 1f, 0f), Quaternion.identity);
+				Instantiate(bullet, transform.position + Vector3.up, Quaternion.identity);
 
 			Bullet shootBullet = shoot.GetComponent<Bullet>();
 
 			shootBullet.TowardUp = true;
 			shootBullet.Speed = shotSpeed;
 		}
+	}
 
+	void ShootRight()
+	{
 		if (toRight)
 		{
 			GameObject shoot =
-				Instantiate(bullet, transform.position + new Vector3(1f, 0f, 0f), Quaternion.identity);
+				Instantiate(bullet, transform.position + Vector3.right, Quaternion.identity);
 
 			Bullet shootBullet = shoot.GetComponent<Bullet>();
 
 			shootBullet.TowardRight = true;
 			shootBullet.Speed = shotSpeed;
 		}
+	}
 
+	void ShootDown()
+	{
 		if (toDown)
 		{
 			GameObject shoot =
-				Instantiate(bullet, transform.position - new Vector3(0f, 1f, 0f), Quaternion.identity);
+				Instantiate(bullet, transform.position + Vector3.down, Quaternion.identity);
 
 			Bullet shootBullet = shoot.GetComponent<Bullet>();
 
 			shootBullet.TowardDown = true;
 			shootBullet.Speed = shotSpeed;
 		}
+	}
 
+	void ShootLeft()
+	{
 		if (toLeft)
 		{
 			GameObject shoot =
-				Instantiate(bullet, transform.position - new Vector3(1f, 0f, 0f), Quaternion.identity);
+				Instantiate(bullet, transform.position + Vector3.left, Quaternion.identity);
 
 			Bullet shootBullet = shoot.GetComponent<Bullet>();
 

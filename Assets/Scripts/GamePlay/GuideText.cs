@@ -21,7 +21,7 @@ public class GuideText : MonoBehaviour
 	void Update()
 	{
 		guideText.alignment = TextAnchor.MiddleCenter;
-		guideText.color = new Color(1f, 1f, 1f, 1f);
+		guideText.color = Color.white;
 
 		switch (playerBall.CurStage)
 		{
@@ -134,6 +134,11 @@ public class GuideText : MonoBehaviour
 				rt.anchoredPosition = new Vector2(0f, -230f);
 				guideText.alignment = TextAnchor.MiddleRight;
 				guideText.text = "How dare you climb onto this?!";
+				break;
+
+			case 21:
+				rt.anchoredPosition = new Vector2(0f, 30f);
+				guideText.text = "Much easier than previous stage.. maybe";
 				break;
 
 			default:
