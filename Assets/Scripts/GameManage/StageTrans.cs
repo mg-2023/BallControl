@@ -26,6 +26,11 @@ public class StageTrans : MonoBehaviour
 		Ball.ballRB.velocity = new Vector2(0f, 0f);
 
 		cam.transform.position = new Vector3(32f*(playerBall.CurStage-1), 0f, -1f);
+
+		// control jump state when stage transition
+		playerBall.OnGround = false;
+		playerBall.JumpEnabled = false;
+		playerBall.DashEnabled = false;
 	}
 
 	/*

@@ -70,7 +70,7 @@ public class GuideText : MonoBehaviour
 				
 			case 9:
 				rt.anchoredPosition = new Vector2(0f, 80f);
-				guideText.text = "3 dashes in a row!!";
+				guideText.text = "Using dashes in a row!!";
 				break;
 				
 			case 10:
@@ -137,7 +137,8 @@ public class GuideText : MonoBehaviour
 				break;
 
 			case 21:
-				rt.anchoredPosition = new Vector2(0f, 30f);
+				rt.anchoredPosition = new Vector2(0f, 185f);
+				guideText.alignment = TextAnchor.MiddleLeft;
 				guideText.text = "Much easier than previous stage.. maybe";
 				break;
 
