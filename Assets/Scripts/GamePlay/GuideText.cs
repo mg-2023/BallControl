@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class GuideText : MonoBehaviour
 {
 	RectTransform rt;
 	Text guideText;
 	Ball playerBall;
-	
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -137,9 +138,8 @@ public class GuideText : MonoBehaviour
 				break;
 
 			case 21:
-				rt.anchoredPosition = new Vector2(0f, 185f);
-				guideText.alignment = TextAnchor.MiddleLeft;
-				guideText.text = "Much easier than previous stage.. maybe";
+				rt.anchoredPosition = new Vector2(0f, 150f);
+				guideText.text = "Warp gates: Teleports to same number\n<size=16>Green: In, Red: Out</size>";
 				break;
 
 			default:
