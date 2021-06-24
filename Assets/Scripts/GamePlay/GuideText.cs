@@ -142,6 +142,11 @@ public class GuideText : MonoBehaviour
 				guideText.text = "Warp gates: Teleports to same number\n<size=16>Green: In, Red: Out</size>";
 				break;
 
+			case 22:
+				rt.anchoredPosition = new Vector2(0f, 0f);
+				guideText.text = "Don\'t get confused now";
+				break;
+
 			default:
 				rt.anchoredPosition = new Vector2(0f, 0f);
 				guideText.text = "More stages coming soon...";
