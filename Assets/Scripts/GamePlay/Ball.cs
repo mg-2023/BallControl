@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-
 	public int startLevel = 1;
 
 	public int CurStage { get; set; } = 1;
@@ -41,8 +40,9 @@ public class Ball : MonoBehaviour
 		PlayerJump();
 		PlayerMoveLeft();
 		PlayerMoveRight();
-		ItemControl();
-		
+		DashControl();
+		JumpControl();
+
 		cam.backgroundColor = new Color(0f, (CurStage+15f)/60f, 0f, 1f);
 	}
 
@@ -64,7 +64,7 @@ public class Ball : MonoBehaviour
 	}
 
 	void PlayerJump()
-    {
+	{
 		if (Input.GetKeyDown(KeyCode.UpArrow) && OnGround)
 		{
 			OnGround = false;
@@ -88,7 +88,7 @@ public class Ball : MonoBehaviour
 	}
 
 	void PlayerMoveRight()
-    {
+	{
 		if (Input.GetKey(KeyCode.RightArrow))
 		{
 			if (ballRB.velocity.x < maxSpeed)
@@ -102,7 +102,7 @@ public class Ball : MonoBehaviour
 		}
 	}
 	
-	void ItemControl()
+	void DashControl()
 	{
 		// controller while dash item is enabled
 		if(Input.GetKeyDown(KeyCode.Z) && DashEnabled)
@@ -112,12 +112,15 @@ public class Ball : MonoBehaviour
 			ballSR.color = Color.yellow;
 			DashEnabled = false;
 		}
-		
+	}
+
+	void JumpControl()
+	{
 		// controller while jump item is enabled
-		if(Input.GetKeyDown(KeyCode.X) && JumpEnabled)
+		if (Input.GetKeyDown(KeyCode.X) && JumpEnabled)
 		{
 			ballRB.velocity = new Vector2((ballRB.velocity.x > 0) ? 5f : -5f, 12f);
-			
+
 			ballSR.color = Color.yellow;
 			JumpEnabled = false;
 		}

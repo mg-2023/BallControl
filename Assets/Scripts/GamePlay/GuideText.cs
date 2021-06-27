@@ -147,6 +147,12 @@ public class GuideText : MonoBehaviour
 				guideText.text = "Don\'t get confused now";
 				break;
 
+			case 23:
+				rt.anchoredPosition = new Vector2(0f, 200f);
+				guideText.alignment = TextAnchor.MiddleRight;
+				guideText.text = "Use items at your own risk";
+				break;
+
 			default:
 				rt.anchoredPosition = new Vector2(0f, 0f);
 				guideText.text = "More stages coming soon...";

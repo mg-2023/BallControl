@@ -14,7 +14,7 @@ public class ItemJump : MonoBehaviour
 	Ball playerBall;
 
 	[SerializeField]
-    private float regenTime = 1f;
+	private float regenTime = 1f;
 	// item regeneration time, defaults to 1sec but can change in inspector
 
 	// Start is called before the first frame update
