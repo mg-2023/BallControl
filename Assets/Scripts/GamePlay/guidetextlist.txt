@@ -1,0 +1,59 @@
+Left/Right arrow to move
+<size=16>Press ESC anytime to go back to main screen</size>
+Up arrow to jump
+
+Be careful of that red thingy
+<size=16>That makes you to go back to start position</size>
+Jump past that red thingy
+
+Added one more layer!
+<size=16>Good luck</size>
+Dash Usage
+<size=16>Hold arrow key and press 'Z'</size>
+Just one dash.. with control!!
+
+Get ready for more controls!
+
+Using dashes in a row!!
+
+Jump Usage
+<size=16>Hold arrow key and press 'X'</size>
+6 jumps in a row.. again!
+
+Don't get confused.. There're two items now!
+
+More item changes
+<size=16>and increasing difficulty</size>
+Challenge accepted: jumping over the wall
+
+Everything gets trickier...
+
+Isn't that.. the turret?!
+
+They shoot towards even left or right!
+
+What if you pass through the bullets?
+
+I can't decide either easier or harder than it looks...
+
+How dare you climb onto this?!
+
+Warp gates: Teleports to same number
+<size=16>Green: In, Red: Out</size>
+Don't get confused now
+
+Use items at your own risk
+
+Symmetry is good
+
+More stages coming soon...
+
+More stages coming soon...
+
+More stages coming soon...
+
+More stages coming soon...
+
+More stages coming soon...
+
+More stages coming soon...

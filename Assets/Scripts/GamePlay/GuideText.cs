@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.IO;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,12 +11,40 @@ public class GuideText : MonoBehaviour
 	Text guideText;
 	Ball playerBall;
 
+	string[] guideTexts = new string[30];
+	float[] YPositions = {-30, -30, 150, 180, -165, 30, 120, 120, 80, 30, 
+	                      80, -210, 225, 250, -135, 0, -155, -255, 265, -230, 
+	                      150, 165, 200, 85, 0, 0, 0, 0, 0, 0};
+	int[] anchors = {4, 4, 4, 4, 4, 4, 4, 5, 4, 4, 
+	                 3, 4, 4, 3, 5, 3, 3, 5, 3, 5, 
+	                 4, 5, 5, 3, 4, 4, 4, 4, 4, 4};
+	// 3: MiddleLeft
+	// 4: MiddleCenter (default)
+	// 5: MiddleRight
+
 	// Start is called before the first frame update
 	void Start()
 	{
 		rt = gameObject.GetComponent<RectTransform>();
 		guideText = gameObject.GetComponent<Text>();
 		playerBall = FindObjectOfType<Ball>();
+
+		try
+		{
+			using(var reader = new StreamReader("Assets/Scripts/GamePlay/guidetextlist.txt"))
+			{
+				for(int i=0; i<guideTexts.Length; i++)
+				{
+					guideTexts[i] = reader.ReadLine();
+					string addition = reader.ReadLine();
+					if(addition != "")
+						guideTexts[i] += $"\n{addition}";
+				}
+			}
+		} catch(IOException ex) {
+			// simple way to remove that nasty warning
+			Debug.LogError(ex.Message);
+		}
 	}
 
 	// Update is called once per frame
@@ -24,139 +53,13 @@ public class GuideText : MonoBehaviour
 		guideText.alignment = TextAnchor.MiddleCenter;
 		guideText.color = Color.white;
 
-		switch (playerBall.CurStage)
-		{
-			case 1:
-				rt.anchoredPosition = new Vector2(0f, -30f);
-				guideText.text = 
-					"Left/Right arrow to move\n<size=16>Press ESC anytime to go back to main screen</size>";
-				break;
-				
-			case 2:
-				rt.anchoredPosition = new Vector2(0f, -30f);
-				guideText.text = "Up arrow to jump";
-				break;
-				
-			case 3:
-				rt.anchoredPosition = new Vector2(0f, 150f);
-				guideText.text = 
-					"Be careful of that red thingy\n<size=16>That makes you to go back to start position</size>";
-				break;
-				
-			case 4:
-				rt.anchoredPosition = new Vector2(0f, 180f);
-				guideText.text = "Jump past that red thingy";
-				break;
-				
-			case 5:
-				rt.anchoredPosition = new Vector2(0f, -165f);
-				guideText.text = "Added one more layer!\n<size=16>Good luck</size>";
-				break;
-				
-			case 6:
-				rt.anchoredPosition = new Vector2(0f, 30f);
-				guideText.text = "Dash Usage\n<size=16>Hold arrow key and press \'Z\'</size>";
-				break;
-				
-			case 7:
-				rt.anchoredPosition = new Vector2(0f, 120f);
-				guideText.text = "Just one dash.. with control!!";
-				break;
+		// finally did it!!!
+		if(playerBall.CurStage >= 1 && playerBall.CurStage <= 30) {
+			int i = playerBall.CurStage;
 
-			case 8:
-				rt.anchoredPosition = new Vector2(0f, 120f);
-				guideText.alignment = TextAnchor.MiddleRight;
-				guideText.text = "Get ready for more controls!";
-				break;
-				
-			case 9:
-				rt.anchoredPosition = new Vector2(0f, 80f);
-				guideText.text = "Using dashes in a row!!";
-				break;
-				
-			case 10:
-				rt.anchoredPosition = new Vector2(0f, 30f);
-				guideText.text = "Jump Usage\n<size=16>Hold arrow key and press \'X\'</size>";
-				break;
-				
-			case 11:
-				rt.anchoredPosition = new Vector2(0f, 80f);
-				guideText.alignment = TextAnchor.MiddleLeft;
-				guideText.text = "6 jumps in a row.. again!!";
-				break;
-				
-			case 12:
-				rt.anchoredPosition = new Vector2(0f, -210f);
-				guideText.text = "Don\'t get confused.. There\'re two items now!";
-				break;
-				
-			case 13:
-				rt.anchoredPosition = new Vector2(0f, 225f);
-				guideText.text = "More item changes\n<size=16>and increasing difficulty</size>";
-				break;
-
-			case 14:
-				rt.anchoredPosition = new Vector2(0f, 250f);
-				guideText.alignment = TextAnchor.MiddleLeft;
-				guideText.text = "Challenge accepted: jumping over the wall";
-				break;
-
-			case 15:
-				rt.anchoredPosition = new Vector2(0f, -135f);
-				guideText.alignment = TextAnchor.MiddleRight;
-				guideText.text = "Everything gets trickier...";
-				break;
-
-			case 16:
-				rt.anchoredPosition = new Vector2(0f, 0f);
-				guideText.alignment = TextAnchor.MiddleLeft;
-				guideText.text = "Isn\'t that.. the turret?!";
-				break;
-
-			case 17:
-				rt.anchoredPosition = new Vector2(0f, -155f);
-				guideText.alignment = TextAnchor.MiddleLeft;
-				guideText.text = "They shoot towards even left or right!";
-				break;
-
-			case 18:
-				rt.anchoredPosition = new Vector2(0f, -255f);
-				guideText.alignment = TextAnchor.MiddleRight;
-				guideText.text = "What if you pass through the bullets?";
-				break;
-
-			case 19:
-				rt.anchoredPosition = new Vector2(0f, 265f);
-				guideText.alignment = TextAnchor.MiddleLeft;
-				guideText.text = "I can\'t decide either easier or harder than it looks...";
-				break;
-
-			case 20:
-				rt.anchoredPosition = new Vector2(0f, -230f);
-				guideText.alignment = TextAnchor.MiddleRight;
-				guideText.text = "How dare you climb onto this?!";
-				break;
-
-			case 21:
-				rt.anchoredPosition = new Vector2(0f, 150f);
-				guideText.text = "Warp gates: Teleports to same number\n<size=16>Green: In, Red: Out</size>";
-				break;
-
-			case 22:
-				rt.anchoredPosition = new Vector2(0f, 0f);
-				guideText.text = "Don\'t get confused now";
-				break;
-
-			case 23:
-				rt.anchoredPosition = new Vector2(0f, 200f);
-				guideText.alignment = TextAnchor.MiddleRight;
-				guideText.text = "Use items at your own risk";
-				break;
-
-			default:
-				rt.anchoredPosition = new Vector2(0f, 0f);
-				guideText.text = "More stages coming soon...";
-				break;
+			rt.anchoredPosition = new Vector2(0f, YPositions[i-1]);
+			guideText.alignment = (UnityEngine.TextAnchor)(anchors[i-1]);
+			guideText.text = guideTexts[i-1];
 		}
 	}
 }
