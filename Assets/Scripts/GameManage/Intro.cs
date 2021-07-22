@@ -9,7 +9,7 @@ public class Intro : MonoBehaviour
 	GameObject BGM;
 
 	public static int Current = 1;
-	public static int Maximum = 25;
+	public static int Maximum = 26;
 	// furthest stage are stored in this 'Maximum' variable
 	// TODO: restore the Maximum value to 1 when finished designing all the stages
 

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class GuideText : MonoBehaviour
 {
 	RectTransform rt;
@@ -12,12 +11,12 @@ public class GuideText : MonoBehaviour
 	Ball playerBall;
 
 	string[] guideTexts = new string[30];
-	float[] YPositions = {-30, -30, 150, 180, -165, 30, 120, 120, 80, 30, 
-	                      80, -210, 225, 250, -135, 0, -155, -255, 265, -230, 
-	                      150, 165, 200, 85, 0, 0, 0, 0, 0, 0};
-	int[] anchors = {4, 4, 4, 4, 4, 4, 4, 5, 4, 4, 
-	                 3, 4, 4, 3, 5, 3, 3, 5, 3, 5, 
-	                 4, 5, 5, 3, 4, 4, 4, 4, 4, 4};
+	float[] YPositions = {-30, -30, 150, 180, -165, 30, 30, 120, 120, 80, 30, 
+	                      45, -210, 225, 250, -135, 0, -155, -255, 265, -230, 
+	                      150, 165, 200, 85, 0, 0, 0, 0, 0};
+	int[] anchors = {4, 4, 4, 4, 4, 4, 4, 4, 5, 4, 
+	                 4, 3, 4, 4, 3, 5, 3, 3, 5, 3, 
+	                 5, 4, 5, 5, 3, 4, 4, 4, 4, 4};
 	// 3: MiddleLeft
 	// 4: MiddleCenter (default)
 	// 5: MiddleRight
@@ -50,7 +49,6 @@ public class GuideText : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		guideText.alignment = TextAnchor.MiddleCenter;
 		guideText.color = Color.white;
 
 		// finally did it!!!
@@ -58,7 +56,7 @@ public class GuideText : MonoBehaviour
 			int i = playerBall.CurStage;
 
 			rt.anchoredPosition = new Vector2(0f, YPositions[i-1]);
-			guideText.alignment = (UnityEngine.TextAnchor)(anchors[i-1]);
+			guideText.alignment = (TextAnchor)anchors[i-1];
 			guideText.text = guideTexts[i-1];
 		}
 	}

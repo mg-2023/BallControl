@@ -10,6 +10,8 @@ Added one more layer!
 <size=16>Good luck</size>
 Dash Usage
 <size=16>Hold arrow key and press 'Z'</size>
+Need more practice to dash?
+
 Just one dash.. with control!!
 
 Get ready for more controls!
@@ -18,7 +20,7 @@ Using dashes in a row!!
 
 Jump Usage
 <size=16>Hold arrow key and press 'X'</size>
-6 jumps in a row.. again!
+Using jumps in a row!!
 
 Don't get confused.. There're two items now!
 
@@ -45,8 +47,6 @@ Don't get confused now
 Use items at your own risk
 
 Symmetry is good
-
-More stages coming soon...
 
 More stages coming soon...
 
