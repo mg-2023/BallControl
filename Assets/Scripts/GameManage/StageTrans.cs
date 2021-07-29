@@ -17,6 +17,7 @@ public class StageTrans : MonoBehaviour
 	void OnCollisionEnter2D(Collision2D collision)
 	{
 		playerBall.CurStage++;
+        // TODO: uncomment these two lines when finished designing all the stages
 		/*
 		if(playerBall.CurStage > Intro.Maximum)
 			Intro.Maximum++;

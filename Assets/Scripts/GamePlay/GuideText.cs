@@ -13,10 +13,10 @@ public class GuideText : MonoBehaviour
 	string[] guideTexts = new string[30];
 	float[] YPositions = {-30, -30, 150, 180, -165, 30, 30, 120, 120, 80, 30, 
 	                      45, -210, 225, 250, -135, 0, -155, -255, 265, -230, 
-	                      150, 165, 200, 85, 0, 0, 0, 0, 0};
+	                      150, 165, 200, 85, -100, 0, 0, 0, 0};
 	int[] anchors = {4, 4, 4, 4, 4, 4, 4, 4, 5, 4, 
 	                 4, 3, 4, 4, 3, 5, 3, 3, 5, 3, 
-	                 5, 4, 5, 5, 3, 4, 4, 4, 4, 4};
+	                 5, 4, 5, 5, 3, 3, 4, 4, 4, 4};
 	// 3: MiddleLeft
 	// 4: MiddleCenter (default)
 	// 5: MiddleRight
